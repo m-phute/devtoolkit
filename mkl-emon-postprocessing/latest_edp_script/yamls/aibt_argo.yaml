@@ -1,0 +1,11 @@
+- aibt_argo_030220: 
+    'type': 'aibt-argo'
+    'search_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBT/1inst_1cpi_ubuntu_mkldnn0.20/emon'
+    'metrics': '/mnt/san03RAID1/tools/AIBench/EMON_event_files/edp-v4.01/Architecture Specific/CascadeLake/CLX-2S/clx-2s.xml'
+    'agg_secs': 3.5
+    'filter_scheme': 'auto'
+    'filter_column': 'metric_GFLOPS/s'
+    'exclude':
+      - 'draw'
+      - 'inception-resnet-v2'
+      - {'match': 'mobilenet-v1', 'exception': 'ssd-mobilenet-v1'}

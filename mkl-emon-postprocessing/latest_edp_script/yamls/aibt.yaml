@@ -1,0 +1,60 @@
+- aibt_clx_2933:
+    - {'name': 'inception-v3-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-194923-inception_v3_imagenet_float32'}
+    - {'name': 'inception-v4-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 2, 'filter_stop': 14, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-195111-inception_v4_imagenet_float32'}
+    - {'name': 'rfcn-resnet-101-coco-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-195251-rfcn_resnet_101_coco_int8'}
+    - {'name': 'dcgan-cifar10data-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'percent', 'filter_percent': 0, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-200316-dcgan_cifar10data_float32'}
+    - {'name': 'mtcc-lfw-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-200407-mtcc_lfw_float32'}
+    - {'name': 'unet-nodatalayer-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 0, 'filter_stop': 3, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-203741-unet_nodatalayer_float32'}
+    - {'name': 'ncf-ml-1m-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-203837-ncf_ml-1m_float32'}
+    - {'name': 'resnet-50-v1-5-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-220744-resnet_50_v1_5_imagenet_float32'}
+    - {'name': 'resnet-50-v1-5-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 4, 'filter_stop': 7, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-220929-resnet_50_v1_5_imagenet_int8'}
+    - {'name': 'ssd-resnet-34-nodatalayer-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-221054-ssd_resnet_34_nodatalayer_int8'}
+    - {'name': 'inception-resnet-v2-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 2, 'filter_stop': 4, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-221405-inception_resnet_v2_imagenet_int8'}
+    - {'name': 'rfcn-resnet-101-coco-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-221502-rfcn_resnet_101_coco_float32'}
+    - {'name': 'facenet-lfw-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-224622-facenet_lfw_float32'}
+    - {'name': 'densenet-169-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 2, 'filter_stop': 8, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225101-densenet_169_imagenet_float32'}
+#    - {'name': 'lm-1b-wmt11-monolingual-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225221-lm_1b_wmt11_monolingual_float32'}
+    - {'name': 'resnet-50-v1-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 5, 'filter_stop': 13, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225300-resnet_50_v1_imagenet_float32'}
+    - {'name': 'resnet-50-v1-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 4, 'filter_stop': 7, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225447-resnet_50_v1_imagenet_int8'}
+    - {'name': 'mobilenet-v1-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 0, 'filter_stop': 6, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225607-mobilenet_v1_imagenet_float32'}
+    - {'name': 'wide-and-deep-criteo-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225720-wide_and_deep_criteo_float32'}
+    - {'name': 'resnet-101-v1-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 9, 'filter_stop': 15, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-022029-resnet_101_v1_imagenet_float32'}
+    - {'name': 'resnet-101-v1-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 5, 'filter_stop': 9, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-022228-resnet_101_v1_imagenet_int8'}
+    - {'name': 'inception-v3-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 4, 'filter_stop': 7, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-022350-inception_v3_imagenet_int8'}
+    - {'name': 'fasterrcnn-resnet-50-v1-coco-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-022514-fasterrcnn_resnet_50_v1_coco_float32'}
+    - {'name': 'ssd-mobilenet-v1-coco-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-032206-ssd_mobilenet_v1_coco_float32'}
+    - {'name': 'inception-v4-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 1, 'filter_stop': 5, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-033720-inception_v4_imagenet_int8'}
+    - {'name': 'draw-mnistdata-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 1, 'filter_stop': 7, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-033820-draw_mnistdata_float32'}
+    - {'name': 'fasterrcnn-resnet-50-v1-coco-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-033933-fasterrcnn_resnet_50_v1_coco_int8'}
+#    - {'name': 'maskrcnn-resnet-101-v1-coco-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-051152-maskrcnn_resnet_101_v1_coco_float32'}
+    - {'name': 'ssd-resnet-34-nodatalayer-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-051231-ssd_resnet_34_nodatalayer_float32'}
+    - {'name': 'ssd-mobilenet-v1-coco-int8_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 1, 'filter_stop': 4, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-051952-ssd_mobilenet_v1_coco_int8'}
+    - {'name': 'deepmind-wavenet-nsynth-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-052043-deepmind_wavenet_nsynth_float32'}
+    - {'name': 'inception-resnet-v2-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'interval', 'filter_start': 2, 'filter_stop': 7, 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-052308-inception_resnet_v2_imagenet_float32'}
+    - {'name': 'gnmt-4-wmt16-ger-eng-float32_56i_2cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-052422-gnmt_4_wmt16_ger_eng_float32'}
+
+- aibt_121619:
+    'type': 'aibt'
+    'search_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBT/Clustering_CLX8280M'
+    'agg_secs': 3.5
+    'filter_scheme': 'auto'
+    'filter_column': 'metric_GFLOPS/s'
+    'exclude':
+      - 'draw-eigen-float32'
+      - 'draw-mkldnn-float32'
+      - 'inception-resnet-v2'
+      - {'match': 'mobilenet-v1', 'exception': 'ssd-mobilenet-v1'}
+      - 'unet-eigen-float32'
+      - 'unet-mkldnn-float32'
+      - 'wide-and-deep-eigen-int8'
+      - 'wide-and-deep-mkldnn-int8'
+
+- aibt_010620: 
+    'type': 'aibt'
+    'search_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBT/Clustering_CLX8280M/fixed_workloads'
+    'agg_secs': 3.5
+    'filter_scheme': 'auto'
+    'filter_column': 'metric_GFLOPS/s'
+    'exclude':
+      - 'dcgan-eigen-float32-Run1'
+

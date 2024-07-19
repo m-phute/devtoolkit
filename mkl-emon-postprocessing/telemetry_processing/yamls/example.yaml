@@ -1,0 +1,29 @@
+# each yaml should consist of a top level list of "workload sets"
+# a workload set can be an explicit list of each EMON to process or a directory of pre-determined structure that will be searched for EMON
+# the pre-determined search types are currently ['aibench', 'aibt', 'edp', 'kafka-emulator']
+
+- explicit_list:
+    - 'name': 'inception-v3-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default'  # unique name to identify this workload/run. Currently this is parsed on underscores to get information about the workload run configuration and should be named as follows "workload-name_<instances>i_<cores-per-instance>cpi_<core-freq>cf_<uncore-freq>uf_<dram-freq>df_<event-list-type>. Event list types are ['default', 'flops', 'memory', 'proxy'] and you should pass the corresponding xml for the 'metrics' field below.
+      'filter_scheme': 'auto'  # scheme to determine start/stop for workload to trim warmup/cooldown. Options are ['auto', 'interval', 'timestamp', 'seconds', 'percent']
+      'filter_start': 10  # if filter_scheme is ['interval', 'timestamp', 'seconds'], use this to specify the start of the workload as either the interval number (post aggregation), full date timestamp, or time in seconds
+      'filter_stop': 100  # if filter_scheme is ['interval', 'timestamp', 'seconds'], use this to specify the stop of the workload as either the interval number (post aggregation), full date timestamp, or time in seconds
+      'filter_column': 'metric_GFLOPS/s'  # if filter_scheme is 'auto', use this EMON or metric column to try to automatically detect workload start/stop
+      'filter_percent': 10  # if filter_scheme is 'percent', trim this percent from the beginning and end of the workload (e.g. remove first and last 10%)
+      'agg_secs': 3.5  # time in seconds (floats allowed) to aggregrate the raw EMON. This is needed to sum together EMON groups for adding metrics.
+      'metrics': 'clx-2s.xml'  # xml file to use for calculating metrics. Options for default event list are ['skx-2s.xml', 'bdx-ep_w_FLOPS_fixed.xml', 'clx-2s.xml', 'zen.xml']. You can also provide a full path to use a specific xml.
+      'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-194923-inception_v3_imagenet_float32'  # full directory path where emon.log & emonv reside
+
+- search_list:
+    'type': 'aibt'  # search types are currently ['aibench', 'aibt', 'edp', 'kafka-emulator']
+    'search_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBT/Clustering_CLX8280M'  # top level dir where the searching should start
+    'agg_secs': 3.5  # time in seconds (floats allowed) to aggregrate the aggregate the raw EMON. This is needed to sum together EMON groups for adding metrics.
+    'filter_scheme': 'auto'  # will apply to all found EMON except those specified in 'manual_filter'
+    'filter_column': 'metric_GFLOPS/s'
+    'exclude':  # do not include any EMON that has any of these strings in their name (optional)
+      - 'draw-eigen-float32'
+      - 'inception-resnet-v2-eigen-float32'
+    'include':  # ONLY include EMON that has any of these strings in their name (optional)
+      - 'wide-and-deep-eigen-int8'
+      - 'mobilenet-v1-mkldnn-int8'
+    'manual_filter':  # these specific workloads maybe don't work with the 'auto' filter so need manual intervention to determine start/stop times
+      - {'name': 'mobilenet-v1-mkldnn-int8', 'filter_scheme': 'seconds', 'filter_start': 30, 'filter_stop': 300}

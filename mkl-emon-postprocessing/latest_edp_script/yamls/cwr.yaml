@@ -1,0 +1,4 @@
+- cwr:
+    'type': 'edp'
+    'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed'
+    #'metrics': '/root/sbhatt3/edp-v4.1/Architecture Specific/CascadeLake/CLX-2S'

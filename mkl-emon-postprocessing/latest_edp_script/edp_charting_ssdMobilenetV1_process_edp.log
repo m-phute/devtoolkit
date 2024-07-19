@@ -1,0 +1,50 @@
+file=/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed//tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1.xlsx
+file=/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed//tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1.xlsx
+file=/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed//tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1.xlsx
+file=/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed//tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1.xlsx
+file=/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed//tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1.xlsx
+file=/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed//tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1.xlsx
+[INFO][86898]	 found 6 workloads in 0 secs
+
+workload_list
+[{'name': 'tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154590587, 'emon_created': 1610499108.9195843, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}, {'name': 'tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154697145, 'emon_created': 1610499109.0955994, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}, {'name': 'tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154874693, 'emon_created': 1610499109.0075917, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}, {'name': 'tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 202129004, 'emon_created': 1610499109.3436203, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}, {'name': 'tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 202679868, 'emon_created': 1610499109.2156096, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}, {'name': 'tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 203128936, 'emon_created': 1610499109.4636304, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}]
+entry
+{'name': 'tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154590587, 'emon_created': 1610499108.9195843, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}
+[INFO][86977]	 Converting tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1 from edp to csv...
+[INFO][86977]	 Converting tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1 from edp to csv took 77 secs
+entry
+{'name': 'tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154697145, 'emon_created': 1610499109.0955994, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}
+[INFO][86979]	 Converting tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1 from edp to csv...
+[INFO][86979]	 Converting tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1 from edp to csv took 80 secs
+entry
+{'name': 'tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 202129004, 'emon_created': 1610499109.3436203, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}
+[INFO][86985]	 Converting tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1 from edp to csv...
+[INFO][86985]	 Converting tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1 from edp to csv took 114 secs
+entry
+{'name': 'tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 203128936, 'emon_created': 1610499109.4636304, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}
+[INFO][86993]	 Converting tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1 from edp to csv...
+[INFO][86993]	 Converting tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1 from edp to csv took 115 secs
+entry
+{'name': 'tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 202679868, 'emon_created': 1610499109.2156096, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}
+[INFO][86989]	 Converting tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1 from edp to csv...
+[INFO][86989]	 Converting tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1 from edp to csv took 115 secs
+entry
+{'name': 'tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154874693, 'emon_created': 1610499109.0075917, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/'}
+[INFO][86983]	 Converting tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1 from edp to csv...
+[INFO][86983]	 Converting tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1 from edp to csv took 77 secs
+[INFO][86898]	 Combining and averaging EMON...
+[INFO][86898]	 Outputting summary info to /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/
+[INFO][86898]	 Processing /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed//default_emon_metrics_avg.xlsx...
+[INFO][86898]	 Creating Charts...
+[INFO][86898]	 Finished in 0 secs
+
+
+
+Summary of Warnings (0):
+
+
+Summary of Errors (0):
+
+
+[INFO][86898]	 Completed 6 out of 6 workloads successfully in 116 sec
+

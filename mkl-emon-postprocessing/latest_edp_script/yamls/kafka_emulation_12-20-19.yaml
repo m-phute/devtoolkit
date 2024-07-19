@@ -1,0 +1,7 @@
+- kafka_emulation_122019:
+    'type': 'kafka-emulator'
+    'search_dir': '/mnt/san03RAID1/users/ampatel1/aibench_harness/kafka-benchmark/branch_dummyKafka_8_26_2019/AIBench/EmulationData_emon'
+    'summary_file': '/mnt/san03RAID1/users/ampatel1/aibench_harness/kafka-benchmark/branch_dummyKafka_8_26_2019/AIBench/EmulationData_emon/summary_emon.csv'
+    'agg_secs': 3.0
+    'filter_scheme': 'auto'
+    'filter_column': 'IO BW (MB/s)'

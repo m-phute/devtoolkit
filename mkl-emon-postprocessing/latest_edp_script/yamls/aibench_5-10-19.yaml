@@ -1,0 +1,23 @@
+- aibench_collection_5_10:
+    'type': 'aibench'
+    'search_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/AIBench_1.7_auto_pilot_collections'
+    'exclude':
+        - 'Flops'
+        - 'knowledgestream'
+        - 'mzdeepspeech-inference-sf1_56i_1cpi_1.6cf_2.4uf_2666df'
+        - 'mzdeepspeech-inference-sf1_56i_1cpi_1.9cf_2.4uf_2400df'
+        - 'unet3d-inference-sf1_56i_1cpi_1.9cf_2.4uf_2133df'
+        - 'unet3d-inference-sf1_56i_1cpi_1.9cf_2.4uf_2400df'
+        - 'unet3d-inference-sf1_56i_1cpi_1.3cf_2.4uf_2666df'
+    'filter_scheme': 'auto'
+    'filter_column': 'metric_GFLOPS/s'
+
+- aibench_collection_5_10_knowledgestream:
+    'type': 'aibench'
+    'search_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/AIBench_1.7_auto_pilot_collections'
+    'include':
+        - 'knowledgestream'
+    'exclude':
+        - 'Flops'
+    'filter_scheme': 'auto'
+    'filter_column': 'INST_RETIRED.ANY'

@@ -1,0 +1,201 @@
+[INFO][85675]	 generating list of workloads to process...
+[INFO][85675]	 processing yaml ./yamls/cwr.yaml
+[INFO][85675]	 processing workload set cwr
+[INFO][85675]	 found 6 workloads in 0 secs
+
+workload_list
+[{'name': 'tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154590587, 'emon_created': 1610499108.9195843, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed'}, {'name': 'tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154697145, 'emon_created': 1610499109.0955994, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed'}, {'name': 'tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed', 'edp_file': 'tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 154874693, 'emon_created': 1610499109.0075917, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed'}, {'name': 'tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 202129004, 'emon_created': 1610499109.3436203, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed'}, {'name': 'tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 202679868, 'emon_created': 1610499109.2156096, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed'}, {'name': 'tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1', 'filter_start': None, 'filter_stop': None, 'filter_percent': None, 'filter_scheme': None, 'filter_column': None, 'metrics': 'clx-2s.xml', 'perf': None, 'agg_secs': 1.0, 'emon_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed', 'edp_file': 'tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1.xlsx', 'node': None, 'timestamp': None, 'emon_bytes': 203128936, 'emon_created': 1610499109.4636304, 'type': 'edp', 'search_dir': '/mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed'}]
+[INFO][85675]	 Combining and averaging EMON...
+[INFO][85675]	 Outputting summary info to /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results
+[WARN][85675]	 Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1/tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[WARN][85675]	 Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1/tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[WARN][85675]	 Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1/tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[WARN][85675]	 Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1/tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[WARN][85675]	 Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1/tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[WARN][85675]	 Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1/tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[INFO][85675]	 Finished in 0 secs
+
+
+
+Summary of Warnings (6):
+[0]	Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1/tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[1]	Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1/tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[2]	Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1/tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[3]	Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1/tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[4]	Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1/tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+[5]	Can't find /mnt/madhuri/wl_analysis/tf_ssdMobilenet_v1/tf-2.2-docker/logs/emon_raw/edp_processed/results/workloads/tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1/tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1_emon_1.000sec_metrics.csv to summarize
+
+
+Summary of Errors (6):
+[0]	Error converting tf-ssdmobilenetv1-fp32-bs1-iter3_14i_4cpi_edp_r1 to csv! Traceback (most recent call last):
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2657, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 46, in process_workload
+    retval = process.convert_to_csv(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 117, in convert_to_csv
+    return self.convert_from_edp(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 92, in convert_from_edp
+    data['TSC'] = data['number_of_online_processors'] * data['system.tsc_freq'] * data['duration']
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/frame.py", line 2927, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2659, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+[1]	Error converting tf-ssdmobilenetv1-fp32-bs1-iter1_14i_4cpi_edp_r1 to csv! Traceback (most recent call last):
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2657, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 46, in process_workload
+    retval = process.convert_to_csv(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 117, in convert_to_csv
+    return self.convert_from_edp(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 92, in convert_from_edp
+    data['TSC'] = data['number_of_online_processors'] * data['system.tsc_freq'] * data['duration']
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/frame.py", line 2927, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2659, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+[2]	Error converting tf-ssdmobilenetv1-fp32-bs1-iter2_14i_4cpi_edp_r1 to csv! Traceback (most recent call last):
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2657, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 46, in process_workload
+    retval = process.convert_to_csv(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 117, in convert_to_csv
+    return self.convert_from_edp(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 92, in convert_from_edp
+    data['TSC'] = data['number_of_online_processors'] * data['system.tsc_freq'] * data['duration']
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/frame.py", line 2927, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2659, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+[3]	Error converting tf-ssdmobilenetv1-int8-bs1-iter2_14i_4cpi_edp_r1 to csv! Traceback (most recent call last):
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2657, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 46, in process_workload
+    retval = process.convert_to_csv(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 117, in convert_to_csv
+    return self.convert_from_edp(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 92, in convert_from_edp
+    data['TSC'] = data['number_of_online_processors'] * data['system.tsc_freq'] * data['duration']
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/frame.py", line 2927, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2659, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+[4]	Error converting tf-ssdmobilenetv1-int8-bs1-iter1_14i_4cpi_edp_r1 to csv! Traceback (most recent call last):
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2657, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 46, in process_workload
+    retval = process.convert_to_csv(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 117, in convert_to_csv
+    return self.convert_from_edp(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 92, in convert_from_edp
+    data['TSC'] = data['number_of_online_processors'] * data['system.tsc_freq'] * data['duration']
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/frame.py", line 2927, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2659, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+[5]	Error converting tf-ssdmobilenetv1-int8-bs1-iter3_14i_4cpi_edp_r1 to csv! Traceback (most recent call last):
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2657, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 46, in process_workload
+    retval = process.convert_to_csv(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 117, in convert_to_csv
+    return self.convert_from_edp(entry)
+  File "/mnt/madhuri/wl_analysis/post_processing/mkl-emon-postprocessing/latest_edp_script/_convert.py", line 92, in convert_from_edp
+    data['TSC'] = data['number_of_online_processors'] * data['system.tsc_freq'] * data['duration']
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/frame.py", line 2927, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/mnt/madhuri/wl_analysis/post_processing/env_postProcessing/lib/python3.6/site-packages/pandas/core/indexes/base.py", line 2659, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1601, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1608, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'system.tsc_freq'
+
+
+
+[INFO][85675]	 Completed 0 out of 6 workloads successfully in 233 sec
+

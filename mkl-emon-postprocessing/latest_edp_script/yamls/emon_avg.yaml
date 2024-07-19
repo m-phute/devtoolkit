@@ -1,0 +1,30 @@
+# each yaml should consist of a top level list of "workload sets"
+# a workload set can be an explicit list of each EMON to process or a directory of pre-determined structure that will be searched for EMON
+# the pre-determined search types are currently ['aibench', 'aibt', 'edp', 'kafka-emulator']
+
+- workload_list:
+        - 'name' : 'tf_resnet50v15_fp32_bs128_1i_56cpi'
+          'emon_dir': '/mnt/madhuri/wl_analysis/tf_resnet50_v15/old_logs2/emon_data/average_iter/iteration1/resnet50/tf_resnet50v15_fp32_bs128_1i_56cpi'
+          'metrics': '/media/share/AI/WL_Analysis/edp-v4.01//ArchitectureSpecific/CascadeLake/CLX-2S/clx-2s.xml'
+          'agg_secs': 3.5 
+          'filter_scheme': 'percent' 
+          'filter_percent': 0
+          'run_count' : 0
+          
+        - 'name' : 'tf_resnet50v15_fp32_bs128_1i_56cpi'
+          'emon_dir': '/mnt/madhuri/wl_analysis/tf_resnet50_v15/old_logs2/emon_data/average_iter/iteration2/resnet50/tf_resnet50v15_fp32_bs128_1i_56cpi'
+          'metrics': '/media/share/AI/WL_Analysis/edp-v4.01//ArchitectureSpecific/CascadeLake/CLX-2S/clx-2s.xml'
+          'agg_secs': 3.5
+          'filter_scheme': 'percent'
+          'filter_percent': 0
+          'run_count' : 1
+
+        - 'name' : 'tf_resnet50v15_fp32_bs128_1i_56cpi'
+          'emon_dir' : '/mnt/madhuri/wl_analysis/tf_resnet50_v15/old_logs2/emon_data/average_iter/iteration3/resnet50/tf_resnet50v15_fp32_bs128_1i_56cpi'
+          'metrics' : '/media/share/AI/WL_Analysis/edp-v4.01//ArchitectureSpecific/CascadeLake/CLX-2S/clx-2s.xml'
+          'agg_secs' : 3.5
+          'filter_scheme' : 'percent'
+          'filter_percent' : 0
+          'run_count' : 2
+
+

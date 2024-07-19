@@ -1,0 +1,482 @@
+  def old_workload_lists(self):
+    ### SET LIST OF WORKLOADS WITH EMON TO PROCESS
+    # you can input start and stop intervals if you want, or they will be automatically estimated
+    # dict keys are:
+    #   name - workload name and config. Is currently parsed on underscores to get name, instance count, cores per instance, core freq, uncore freq, dram freq, emon events captured
+    #   perf - performance / throughput of the run
+    #   metrics - metric xml to add to data
+    #   start - interval number indicating start of workload, optional
+    #   stop - interval number indicating stop of workload, optional
+    #   emon-dir - directory where emon.log exists; it is expected that emonv.log and emonM.log exist in the same dir or parent dir of emon-dir
+
+    emon_100ms_default = [
+    {'name': 'qanet-infer_56i_1cpi_defcf_defuf_2666df_default', 'perf': '412.45', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_defaultcf_defaultuf_2666df_configEmon100ms/aibench-20190305214342956620/dummy-0-57fc5978f-5qn2r/emon-05032019063344'},
+    {'name': 'qanet-infer_56i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': '413.16', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190306012816341326/dummy-0-5595dbfd79-bhgzw/emon-05032019173024'},
+    {'name': 'qanet-infer_56i_1cpi_1.8cf_2.4uf_2666df_default', 'perf': '371.47', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_1.8cf_2.4uf_2666df_configEmon100ms/aibench-20190306060310412827/dummy-0-7f9d85c9bf-cq2n6/emon-05032019220837'},
+    {'name': 'qanet-infer_56i_1cpi_1.5cf_2.4uf_2666df_default', 'perf': '320.54', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_1.5cf_2.4uf_2666df_configEmon100ms/aibench-20190305223111969559/dummy-0-55f48c5bb7-pnnqf/emon-04032019064255'},
+    {'name': 'qanet-infer_56i_1cpi_2.1cf_2.4uf_2400df_default', 'perf': '412.15', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_2.1cf_2.4uf_2400df_configEmon100ms/aibench-20190305232158129939/dummy-0-6c5f8fcf4b-gt8p8/emon-05032019152922'},
+    {'name': 'qanet-infer_56i_1cpi_2.1cf_2.4uf_2133df_default', 'perf': '401.62', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_2.1cf_2.4uf_2133df_configEmon100ms/aibench-20190305235222106865/dummy-0-79c48b7768-c82mk/emon-05032019161346'},
+    {'name': 'qanet-infer_28i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': '198.40', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/28instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190306020219921755/dummy-0-5595dbfd79-zxg7r/emon-05032019180353'},
+    {'name': 'qanet-infer_14i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': '112.31', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/14instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190306043738333144/dummy-0-5595dbfd79-jvr7v/emon-05032019203901'},
+    #
+    {'name': 'deepvoice3_56i_1cpi_defcf_defuf_2666df_default', 'perf': '486.26', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/_cfDefault_ufDefault_df2666_Emon100ms-instances56_cores-per-inst1/aibench-20190228191944190361/dummy-0-55f48c5bb7-5sf7g/emon-28022019112202'},
+    {'name': 'deepvoice3_56i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': '408.13', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190306002535795977/dummy-0-5595dbfd79-47kdl/emon-05032019162743'},
+    {'name': 'deepvoice3_56i_1cpi_1.8cf_2.4uf_2666df_default', 'perf': '349.78', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_1.8cf_2.4uf_2666df_configEmon100ms/aibench-20190305214619866265/dummy-0-7f9d85c9bf-xtd97/emon-05032019135712'},
+    {'name': 'deepvoice3_56i_1cpi_1.5cf_2.4uf_2666df_default', 'perf': '300.90', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_1.5cf_2.4uf_2666df_configEmon100ms/aibench-20190305210105076122/dummy-0-55f48c5bb7-zgw6m/emon-05032019133801'},
+    {'name': 'deepvoice3_56i_1cpi_2.1cf_2.4uf_2400df_default', 'perf': '406.37', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_2.1cf_2.4uf_2400df_configEmon100ms/aibench-20190306234523412142/dummy-0-6c5f8fcf4b-x7jkh/emon-06032019154732'},
+    {'name': 'deepvoice3_56i_1cpi_2.1cf_2.4uf_2133df_default', 'perf': '412.53', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_2.1cf_2.4uf_2133df_configEmon100ms/aibench-20190306184846648342/dummy-0-79c48b7768-p6f4f/emon-06032019105153'},
+    {'name': 'deepvoice3_28i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': '207.75', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/28instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190306004314065865/dummy-0-5595dbfd79-pctf7/emon-05032019164540'},
+    {'name': 'deepvoice3_14i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': '105.41', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/14instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190306010054548175/dummy-0-5595dbfd79-ct4d8/emon-05032019170226'},
+    #
+    {'name': 'widendeep_14i_4cpi_defcf_defuf_2666df_default', 'perf': '1183649.23', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_defaultcf_defaultuf_2666df_configEmon100ms/aibench-20190307214546696500/dummy-0-6957f575c9-jpwj6/emon-07032019134818'},
+    {'name': 'widendeep_14i_4cpi_2.1cf_2.4uf_2666df_default', 'perf': '1194997.47', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190307192501844387/dummy-0-7d968c89fc-whx7k/emon-07032019112612'},
+    {'name': 'widendeep_14i_4cpi_1.8cf_2.4uf_2666df_default', 'perf': '1158440.75', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_1.8cf_2.4uf_2666df_configEmon100ms/aibench-20190307011108422077/dummy-0-984c6fcff-zjtdx/emon-06032019171220'},
+    {'name': 'widendeep_14i_4cpi_1.5cf_2.4uf_2666df_default', 'perf': '1014214.89', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_1.5cf_2.4uf_2666df_configEmon100ms/aibench-20190307184916244047/dummy-0-c88d9764f-chdqz/emon-07032019105030'},
+    {'name': 'widendeep_14i_4cpi_2.1cf_2.4uf_2400df_default', 'perf': '1206555.79', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_2.1cf_2.4uf_2400df_configEmon100ms/aibench-20190307173446964455/dummy-0-f9c759964-2wh7p/emon-07032019093558'},
+    {'name': 'widendeep_14i_4cpi_2.1cf_2.4uf_2133df_default', 'perf': '1240899.27', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_2.1cf_2.4uf_2133df_configEmon100ms/aibench-20190307180208485443/dummy-0-6d86779946-9gmd7/emon-07032019100319'},
+    {'name': 'widendeep_7i_4cpi_2.1cf_2.4uf_2666df_default',  'perf': '605536.190', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/7instances_4cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190307195108418436/dummy-0-7d968c89fc-9l8wz/emon-07032019115210'},
+    {'name': 'widendeep_3i_4cpi_2.1cf_2.4uf_2666df_default',  'perf': '290402.900', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/3instances_4cores-per-inst_2.1cf_2.4uf_2666df_configEmon100ms/aibench-20190307202117715866/dummy-0-7d968c89fc-pwrxj/emon-07032019122217'},
+    ]
+
+    emon_10ms_flops = [
+    {'name': 'qanet-infer_56i_1cpi_defcf_defuf_2666df_flops', 'perf': '400.40', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_defaultcf_defaultuf_2666df_configEmon10msFlops/aibench-20190305221107203265/dummy-0-57fc5978f-kl6hb/emon-07032019021755'},
+    {'name': 'qanet-infer_56i_1cpi_2.1cf_2.4uf_2666df_flops', 'perf': '403.56', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190306014240666430/dummy-0-5595dbfd79-j9hpm/emon-05032019174451'},
+    {'name': 'qanet-infer_56i_1cpi_1.8cf_2.4uf_2666df_flops', 'perf': '370.20', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_1.8cf_2.4uf_2666df_configEmon10msFlops/aibench-20190327183958175504/dummy-0-78c4f47b5-c75cd/emon-27032019115113'},
+    {'name': 'qanet-infer_56i_1cpi_1.5cf_2.4uf_2666df_flops', 'perf': '315.38', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_1.5cf_2.4uf_2666df_configEmon10msFlops/aibench-20190305224653776747/dummy-0-55f48c5bb7-6gqlc/emon-26032019211714'},
+    {'name': 'qanet-infer_56i_1cpi_2.1cf_2.4uf_2400df_flops', 'perf': '394.03', 'metrics': 'skx-2s-flops-only.xml', 'start': 2000, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_2.1cf_2.4uf_2400df_configEmon10msFlops/aibench-20190305233547283305/dummy-0-6c5f8fcf4b-2gpzt/emon-05032019144531'},
+    {'name': 'qanet-infer_56i_1cpi_2.1cf_2.4uf_2133df_flops', 'perf': '406.51', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_2.1cf_2.4uf_2133df_configEmon10msFlops/aibench-20190306000553682228/dummy-0-79c48b7768-h27f8/emon-05032019115749'},
+    {'name': 'qanet-infer_28i_1cpi_2.1cf_2.4uf_2666df_flops', 'perf': '194.06', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/28instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190306021602015895/dummy-0-5595dbfd79-drwwk/emon-05032019181736'},
+    {'name': 'qanet-infer_14i_1cpi_2.1cf_2.4uf_2666df_flops', 'perf': '110.57', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/14instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190306053614629595/dummy-0-5595dbfd79-cs7gk/emon-05032019213651'},
+    #
+    {'name': 'deepvoice3_56i_1cpi_defcf_defuf_2666df_flops', 'perf': '489.30', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/_cfDefault_ufDefault_df2666_Emon10msFlops-instances56_cores-per-inst1/aibench-20190228215345815736/dummy-0-55f48c5bb7-6wn4v/emon-28022019135615'},
+    {'name': 'deepvoice3_56i_1cpi_2.1cf_2.4uf_2666df_flops', 'perf': '403.95', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190305225208761626/dummy-0-5595dbfd79-p6g4k/emon-05032019145418'},
+    {'name': 'deepvoice3_56i_1cpi_1.8cf_2.4uf_2666df_flops', 'perf': '360.42', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_1.8cf_2.4uf_2666df_configEmon10msFlops/aibench-20190305220655979424/dummy-0-7f9d85c9bf-96pz5/emon-05032019083021'},
+    {'name': 'deepvoice3_56i_1cpi_1.5cf_2.4uf_2666df_flops', 'perf': '299.21', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_1.5cf_2.4uf_2666df_configEmon10msFlops/aibench-20190305202335110957/dummy-0-55f48c5bb7-hwhg5/emon-05032019122420'},
+    {'name': 'deepvoice3_56i_1cpi_2.1cf_2.4uf_2400df_flops', 'perf': '404.37', 'metrics': 'skx-2s-flops-only.xml', 'start': 6000, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_2.1cf_2.4uf_2400df_configEmon10msFlops/aibench-20190306175415637836/dummy-0-6c5f8fcf4b-888mz/emon-06032019095621'},
+    {'name': 'deepvoice3_56i_1cpi_2.1cf_2.4uf_2133df_flops', 'perf': '398.57', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/56instances_1cores-per-inst_2.1cf_2.4uf_2133df_configEmon10msFlops/aibench-20190306183014805328/dummy-0-79c48b7768-f8995/emon-06032019103222'},
+    {'name': 'deepvoice3_28i_1cpi_2.1cf_2.4uf_2666df_flops', 'perf': '207.41', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/28instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190305231344506031/dummy-0-5595dbfd79-bx99g/emon-05032019151524'},
+    {'name': 'deepvoice3_14i_1cpi_2.1cf_2.4uf_2666df_flops', 'perf': '107.09', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Text_to_Speech_deepvoice3/SF1/14instances_1cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190305233038128751/dummy-0-5595dbfd79-jpmg4/emon-05032019153226'},
+    #
+    {'name': 'widendeep_14i_4cpi_defcf_defuf_2666df_flops', 'perf': '1187268.15', 'metrics': 'skx-2s-flops-only.xml', 'start': None,  'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_defaultcf_defaultuf_2666df_configEmon10msFlops/aibench-20190307215916100277/dummy-0-6957f575c9-9mpmr/emon-07032019140033'},
+    {'name': 'widendeep_14i_4cpi_2.1cf_2.4uf_2666df_flops', 'perf': '1244037.25', 'metrics': 'skx-2s-flops-only.xml', 'start': 28000, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190307193746689733/dummy-0-7d968c89fc-tvlnj/emon-07032019113858'},
+    {'name': 'widendeep_14i_4cpi_1.8cf_2.4uf_2666df_flops', 'perf': '1151220.36', 'metrics': 'skx-2s-flops-only.xml', 'start': None,  'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_1.8cf_2.4uf_2666df_configEmon10msFlops/aibench-20190307012625584626/dummy-0-984c6fcff-jtmgv/emon-06032019172737'},
+    {'name': 'widendeep_14i_4cpi_1.5cf_2.4uf_2666df_flops', 'perf': '991500.700', 'metrics': 'skx-2s-flops-only.xml', 'start': None,  'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_1.5cf_2.4uf_2666df_configEmon10msFlops/aibench-20190307190211132957/dummy-0-c88d9764f-dwnq2/emon-07032019110323'},
+    {'name': 'widendeep_14i_4cpi_2.1cf_2.4uf_2400df_flops', 'perf': '1199668.63', 'metrics': 'skx-2s-flops-only.xml', 'start': None,  'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_2.1cf_2.4uf_2400df_configEmon10msFlops/aibench-20190307174806012803/dummy-0-f9c759964-g6qwg/emon-07032019094916'},
+    {'name': 'widendeep_14i_4cpi_2.1cf_2.4uf_2133df_flops', 'perf': '1160910.62', 'metrics': 'skx-2s-flops-only.xml', 'start': None,  'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/14instances_4cores-per-inst_2.1cf_2.4uf_2133df_configEmon10msFlops/aibench-20190307182212286073/dummy-0-6d86779946-rthpp/emon-07032019102323'},
+    {'name': 'widendeep_7i_4cpi_2.1cf_2.4uf_2666df_flops',  'perf': '586872.490', 'metrics': 'skx-2s-flops-only.xml', 'start': None,  'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/7instances_4cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190307200427086779/dummy-0-7d968c89fc-t6wmb/emon-07032019120530'},
+    {'name': 'widendeep_3i_4cpi_2.1cf_2.4uf_2666df_flops',  'perf': '298512.050', 'metrics': 'skx-2s-flops-only.xml', 'start': None,  'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/MXNET/wide-n-deep/emon_data_rerun/3instances_4cores-per-inst_2.1cf_2.4uf_2666df_configEmon10msFlops/aibench-20190307211231911212/dummy-0-7d968c89fc-prqdj/emon-07032019131331'},
+    ]
+
+    emon_10ms_flops_avx2 = [{'name': 'qanet-infer_56i_1cpi_defcf_defuf_2666df_flops-avx2', 'perf': '460.22', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON-AVX2/56instances_1cores-per-inst_defaultcf_defaultuf_defaultdf_configEmon10msFlops/aibench-20190408221802703022/dummy-0-86f6688d4b-sdp7s/emon-08042019152612'}]
+    flops_test = [{'name': 'qanet-infer_56i_1cpi_defcf_defuf_2666df_flops', 'perf': '400.40', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_defaultcf_defaultuf_2666df_configEmon10msFlops/aibench-20190305221107203265/dummy-0-57fc5978f-kl6hb/emon-07032019021755'}]
+    default_test = [{'name': 'qanet-infer_56i_1cpi_defcf_defuf_2666df_default', 'perf': '412.45', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/QANet/standalone_qanet_inference/EMON/56instances_1cores-per-inst_defaultcf_defaultuf_2666df_configEmon100ms/aibench-20190305214342956620/dummy-0-57fc5978f-5qn2r/emon-05032019063344'}]
+    srgans = [{'name': 'srgans', 'perf': None, 'start': None, 'stop': None, 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/performance/pods/perf-nineteen-0-6fbf77596d-ththg/emon-26032019111344'}]
+    resnet50 = [{'name': 'resnet50', 'perf': None, 'start': None, 'stop': None, 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/cnn/aibench-20190328185652939458/dummy-0-696bb4ff75-f7skf/emon-28032019115844'}]
+    nasar_flops = [{'name': 'srgans_14i_4cpi_defcf_defuf_2666df_flops', 'perf': '4.00', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/performance/pods/perf-nineteen-0-6fbf77596d-ththg/emon-10msFlops-4_14_localsave'}]
+    nasar_default = [{'name': 'srgans_14i_4cpi_defcf_defuf_2666df_default', 'perf': '4.10', 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/performance/pods/perf-nineteen-0-6fbf77596d-ththg/emon-100ms-4_14_localsave'}]
+    prachi_flops = [{'name': '3dunet_14i_4cpi_defcf_defuf_2666df_flops', 'perf': '3.14', 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/unet3d-inference-e1/aibench-20190411103016966293/dummy-0-f4cbddc68-fjmjd/emon-11042019103049'}]
+
+    face_rec_100ms_default = [{'name': 'face-rec_56i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Face_Recognition/tensorflow_1.12/e2e_core_scaling/SF1/EMON-100ms-aibench-20181211020203139652/dummy-one-0-6545d6c8f4-dfmsg/emon-10122018184240'}]
+    face_rec_10ms_default = [
+        {'name': 'face-rec-infer_56i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Face_Recognition/tensorflow_1.12/e2e_core_scaling/SF1/EMON-10ms-aibench-20181211075515147320/dummy-one-0-6545d6c8f4-vzj2k-inference-two/emon-11122018003513'},
+        {'name': 'face-rec-detect_56i_1cpi_2.1cf_2.4uf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Face_Recognition/tensorflow_1.12/e2e_core_scaling/SF1/EMON-10ms-aibench-20181211075515147320/dummy-three-0-6bc6744674-rj266-decode-detect/emon-11122018003523'},
+        {'name': 'face-rec-broker_1i_56cpi_2.1cf_2.4uf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Face_Recognition/tensorflow_1.12/e2e_core_scaling/SF1/EMON-10ms-aibench-20181211075515147320/dummy-two-0-78b79dd85c-q77rx-broker/emon-11122018003501'},
+    ]
+
+    lrcn_10ms_flops = [{'name': 'lrcn_28i_2cpi_2.1cf_2.4uf_2666df_flops', 'perf': None, 'metrics': 'skx-2s-flops-only.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/lrcn/lrcn-activity-recognition-batch-inference/core-scaling/_cf2100.0_uf2400.0_df2666.0-instances28_cores-per-inst2-emon'}]
+    lrcn_100ms_seabass = [{'name': 'lrcn_14i_4cpi_2.5cf_2.4uf_2666df_default', 'perf': None, 'metrics': 'skx-2s', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/lrcn/lrcn-activity-recognition-batch-inference/seabass/intel_caffe/SKX/lrcn_activity_recognition_poc-facenet-2018-07-05-18-54-33-4core-14inst-default10ms/results/lrcn_activity_recognition/seabass_result/lrcn_activity_recognition/experiments/lrcn_activity_recognition/lrcn_activity_recognition-poc-facenet-2018-07-05-18-54-33/run_1/instruments/fmwpaxeon79'}]
+
+    kafka_broker = [
+        {'name': 'kafka-broker1-1x_1i_56cpi_defcf_defuf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/users/drichins/Data/FR-Emulation/PROFILE-emon/BROKER_CORES-56/BROKERS-3/STORAGE_MEDIUM-ssd/STORAGE_DEVICES-1/PRODUCERS-15/CONSUMERS-22/ITEMS_PER_ELEMENT-1/PRODUCER_BATCH_SIZE-1024/PRODUCER_LINGER_MS-0/CONSUMER_FMB-40000/CONSUMER_FMWM-10/ITEM_SIZE-37331/ELEMENT_COUNT-18000/SPEED-1.0/emon/perf-daniel-seventeen-0-57d5cdfb6b-ps7hc/emon-01052019222632'},
+        {'name': 'kafka-broker2-1x_1i_56cpi_defcf_defuf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/users/drichins/Data/FR-Emulation/PROFILE-emon/BROKER_CORES-56/BROKERS-3/STORAGE_MEDIUM-ssd/STORAGE_DEVICES-1/PRODUCERS-15/CONSUMERS-22/ITEMS_PER_ELEMENT-1/PRODUCER_BATCH_SIZE-1024/PRODUCER_LINGER_MS-0/CONSUMER_FMB-40000/CONSUMER_FMWM-10/ITEM_SIZE-37331/ELEMENT_COUNT-18000/SPEED-1.0/emon/perf-daniel-fifty-five-0-5cb5cbdf64-qrk2h/emon-01052019222632'},
+        {'name': 'kafka-broker3-1x_1i_56cpi_defcf_defuf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/users/drichins/Data/FR-Emulation/PROFILE-emon/BROKER_CORES-56/BROKERS-3/STORAGE_MEDIUM-ssd/STORAGE_DEVICES-1/PRODUCERS-15/CONSUMERS-22/ITEMS_PER_ELEMENT-1/PRODUCER_BATCH_SIZE-1024/PRODUCER_LINGER_MS-0/CONSUMER_FMB-40000/CONSUMER_FMWM-10/ITEM_SIZE-37331/ELEMENT_COUNT-18000/SPEED-1.0/emon/perf-daniel-ninety-eight-0-786c599869-rwhk7/emon-01052019222632'},
+        {'name': 'kafka-broker1-6x_1i_56cpi_defcf_defuf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/users/drichins/Data/FR-Emulation/PROFILE-emon/BROKER_CORES-56/BROKERS-3/STORAGE_MEDIUM-ssd/STORAGE_DEVICES-1/PRODUCERS-15/CONSUMERS-22/ITEMS_PER_ELEMENT-1/PRODUCER_BATCH_SIZE-1024/PRODUCER_LINGER_MS-0/CONSUMER_FMB-40000/CONSUMER_FMWM-10/ITEM_SIZE-37331/ELEMENT_COUNT-18000/SPEED-6.0/emon/perf-daniel-seventeen-0-57d5cdfb6b-bshcw/emon-02052019085035'},
+        {'name': 'kafka-broker2-6x_1i_56cpi_defcf_defuf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/users/drichins/Data/FR-Emulation/PROFILE-emon/BROKER_CORES-56/BROKERS-3/STORAGE_MEDIUM-ssd/STORAGE_DEVICES-1/PRODUCERS-15/CONSUMERS-22/ITEMS_PER_ELEMENT-1/PRODUCER_BATCH_SIZE-1024/PRODUCER_LINGER_MS-0/CONSUMER_FMB-40000/CONSUMER_FMWM-10/ITEM_SIZE-37331/ELEMENT_COUNT-18000/SPEED-6.0/emon/perf-daniel-fifty-five-0-5cb5cbdf64-lqqdh/emon-02052019085034'},
+        {'name': 'kafka-broker3-6x_1i_56cpi_defcf_defuf_2666df_default', 'perf': None, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'emon_dir': '/mnt/san03RAID1/users/drichins/Data/FR-Emulation/PROFILE-emon/BROKER_CORES-56/BROKERS-3/STORAGE_MEDIUM-ssd/STORAGE_DEVICES-1/PRODUCERS-15/CONSUMERS-22/ITEMS_PER_ELEMENT-1/PRODUCER_BATCH_SIZE-1024/PRODUCER_LINGER_MS-0/CONSUMER_FMB-40000/CONSUMER_FMWM-10/ITEM_SIZE-37331/ELEMENT_COUNT-18000/SPEED-6.0/emon/perf-daniel-ninety-eight-0-786c599869-w7q5g/emon-02052019085035'},
+    ]
+
+
+    aibench_collection_5_10 = [{
+        'type': 'aibench',
+        'search_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/AIBench_1.7_auto_pilot_collections',
+        'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/combined',
+        'manual_start_stop': {
+        'wide-n-deep-sf1_14i_4cpi_1.6cf_2.4uf_2666df_configEmon100ms': {'start': 3000, 'stop': None},
+        'wide-n-deep-sf1_14i_4cpi_1.3cf_2.4uf_2666df_configEmon100ms': {'start': 3300, 'stop': None},
+        'throwaway-face-decode-detection-sf1_56i_1cpi_1.9cf_2.4uf_2133df_configEmon100ms': {'start': 750, 'stop': 3600},
+        'gnmt-standalone-inference-sf1_14i_2cpi_1.9cf_2.4uf_2666df_configEmon100ms': {'start': None, 'stop': 8100},
+        'mzdeepspeech-inference-sf1_56i_1cpi_1.9cf_2.4uf_2666df_configEmon100ms': {'start': 870, 'stop': 10000},
+        'text-to-speech-inference-sf1_56i_1cpi_1.3cf_2.4uf_2666df_configEmon100ms': {'start': 600, 'stop': 9600},
+        'standalone-rcnn-inference-sf1_56i_1cpi_1.3cf_2.4uf_2666df_configEmon100ms': {'start': 1500, 'stop': 34200},
+        'transformer-nmt-standalone-inference-sf1_56i_1cpi_1.9cf_2.4uf_2400df_configEmon100ms': {'start': None, 'stop': 33300},
+        'qanet-standalone-inference-sf1_56i_1cpi_1.6cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 20000},
+        'mzdeepspeech-inference-sf1_14i_1cpi_1.9cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 74000},
+        'wide-n-deep-sf1_14i_4cpi_1.9cf_2.4uf_2133df_configEmon10msFlops': {'start': 28000, 'stop': None},
+        'standalone-face-inference-sf1_28i_1cpi_1.9cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 40000},
+        'wide-n-deep-sf1_14i_4cpi_1.6cf_2.4uf_2666df_configEmon10msFlops': {'start': 30000, 'stop': None},
+        'wide-n-deep-sf1_14i_4cpi_1.3cf_2.4uf_2666df_configEmon10msFlops': {'start': 32000, 'stop': None},
+        'mzdeepspeech-inference-sf1_28i_1cpi_1.9cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 84000},
+        'standalone-face-inference-sf1_56i_1cpi_1.3cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 50000},
+        'standalone-face-inference-sf1_56i_1cpi_1.9cf_2.4uf_2400df_configEmon10msFlops': {'start': None, 'stop': 40000},
+        'text-to-speech-inference-sf1_56i_1cpi_1.9cf_2.4uf_2133df_configEmon10msFlops': {'start': None, 'stop': 64000},
+        'standalone-rcnn-inference-sf1_28i_1cpi_1.9cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 244000},
+        'standalone-rcnn-inference-sf1_56i_1cpi_1.9cf_2.4uf_2666df_configEmon10msFlops': {'start': 16000, 'stop': 254000},
+        'standalone-rcnn-inference-sf1_56i_1cpi_1.9cf_2.4uf_2133df_configEmon10msFlops': {'start': 15000, 'stop': 262000},
+        'transformer-nmt-standalone-inference-sf1_56i_1cpi_1.6cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 340000},
+        'transformer-nmt-standalone-inference-sf1_56i_1cpi_1.9cf_2.4uf_2666df_configEmon10msFlops': {'start': 16000, 'stop': 320000},
+        'transformer-nmt-standalone-inference-sf1_56i_1cpi_1.9cf_2.4uf_2400df_configEmon10msFlops': {'start': None, 'stop': 320000},
+        'transformer-nmt-standalone-inference-sf1_56i_1cpi_1.9cf_2.4uf_2133df_configEmon10msFlops': {'start': None, 'stop': 330000},
+        'transformer-nmt-standalone-inference-sf1_56i_1cpi_1.3cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 390000},
+        'srgan-inference-sf1_14i_4cpi_1.9cf_2.4uf_2666df_configEmon10msFlops': {'start': None, 'stop': 96800},
+        'unet3d-inference-sf1_56i_1cpi_1.3cf_2.4uf_2666df_configEmon100ms': {'start': 0, 'stop': 37000},
+        }
+    }]
+
+    cwr = [{
+        'type': 'edp',
+        'search_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/cwr',
+        'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/combined'
+    }]
+
+    broker = [{'name': 'kafka-broker_1i_56cpi_defcf_defuf_2666df_default', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/face-rec', 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Face_Recognition/tensorflow_1.12/e2e_core_scaling/SF1/EMON-100ms-aibench-20181211020203139652/dummy-two-0-broker-78b79dd85c-fdslh/emon-10122018184229'}]
+
+    aibench_collection_lrcn = [{
+        'type': 'aibench',
+        'search_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/data_collection_2019-06-04T12:17:16-0700',
+        'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/lrcn_memory',
+        'manual_start_stop': {}
+    }]
+
+    kafka_emulator_collection = [{
+        'type': 'kafka-emulator',
+        'search_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/kafka-benchmark/',
+        'summary_file': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/kafka-benchmark/kafka-summary.csv',
+        'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/kafka_emulation',
+        'agg_secs': 3.0,
+        'manual_start_stop': {}
+    }]   
+
+
+    gnmt_numa = [
+        {'name': 'gnmt_14i_2cpi_1.9cf_2.4uf_2666df_default_localmem',  'perf': 187.004, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/gnmt_numa', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/gnmt-standalone-inference-sf1/aibench-20190627114552943423/nmt-inference-configemon100ms-0-5cd59575cb-h2d7t/perf-fmx005-0-5c75bc97b4-7jk47/emon-27062019114628'},
+        {'name': 'gnmt_14i_2cpi_1.9cf_2.4uf_2666df_default_remotemem', 'perf': 62.2752, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/gnmt_numa', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/gnmt-standalone-inference-sf1/aibench-20190627120642946931/nmt-inference-configemon100ms-0-5cd59575cb-r76bw/perf-fmx005-0-5c75bc97b4-7jk47/emon-27062019120713'},
+        {'name': 'gnmt_1i_28cpi_1.9cf_2.4uf_2666df_default_localmem',  'perf': 99.1742, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/gnmt_numa', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/gnmt-standalone-inference-sf1/aibench-20190627133940891877/nmt-inference-configemon100ms-0-5cd59575cb-wgn2c/perf-fmx005-0-5c75bc97b4-7jk47/emon-27062019133957'},
+        {'name': 'gnmt_1i_28cpi_1.9cf_2.4uf_2666df_default_remotemem', 'perf': 48.6245, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/gnmt_numa', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/gnmt-standalone-inference-sf1/aibench-20190627131956640239/nmt-inference-configemon100ms-0-5cd59575cb-gwxhx/perf-fmx005-0-5c75bc97b4-7jk47/emon-27062019132012'},
+        {'name': 'gnmt_1i_2cpi_1.9cf_2.4uf_2666df_default_localmem',   'perf': 34.3421, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/gnmt_numa', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/gnmt-standalone-inference-sf1/aibench-20190628135047886729/nmt-inference-configemon100ms-0-5cd59575cb-kdt8n/perf-fmx005-0-5c75bc97b4-7jk47/emon-28062019135104'},
+        {'name': 'gnmt_1i_2cpi_1.9cf_2.4uf_2666df_default_remotemem',  'perf': 24.8093, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml', 'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/gnmt_numa', 'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/gnmt-standalone-inference-sf1/aibench-20190628140425255409/nmt-inference-configemon100ms-0-5cd59575cb-xfl87/perf-fmx005-0-5c75bc97b4-7jk47/emon-28062019140441'},
+    ]
+
+    faas = [
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_1_12_05_20__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_1_12_05_20__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_1_12_05_32__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_1_12_05_32__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_1_12_05_45__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_1_12_05_45__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_112_12_08_50__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_112_12_08_50__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_112_12_09_09__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_112_12_09_09__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_112_12_09_30__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_112_12_09_30__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_16_12_06_36__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_16_12_06_36__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_16_12_06_49__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_16_12_06_49__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_16_12_07_02__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_16_12_07_02__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_168_12_09_47__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_168_12_09_47__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_168_12_10_05__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_168_12_10_05__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_168_12_10_25__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_168_12_10_25__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_32_12_07_15__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_32_12_07_15__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_32_12_07_30__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_32_12_07_30__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_32_12_07_46__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_32_12_07_46__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_56_12_07_59__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_56_12_07_59__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_56_12_08_17__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_56_12_08_17__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_56_12_08_37__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_56_12_08_37__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_8_12_05_58__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_8_12_05_58__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_8_12_06_10__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_8_12_06_10__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_8_12_06_23__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_8_12_06_23__05_Jul_2019FNS'},
+    ]
+
+    proxy_test = [
+    {'name': 'proxy_1i_56cpi_defcf_defuf_2666df_proxy', 'perf': None, 'agg_secs': 0.04, 'metrics': 'skx-2s-proxy-only.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/proxy_test',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/test'},
+    ]
+
+    example_workloads = [
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_1_12_05_20__05_Jul_2019FNS','perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_1_12_05_20__05_Jul_2019FNS'},
+    {'name': 'faas_1i_56cpi_defcf_defuf_2666df_default_openfaas-nmt-ofwatchdog_1_12_05_32__05_Jul_2019FNS', 'perf': None, 'agg_secs': 3.0, 'metrics': 'skx-2s.xml',
+     'start': None, 'stop': None, 'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/faas',
+     'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/faas/openfaas-nmt-ofwatchdog_1_12_05_32__05_Jul_2019FNS'},
+    ]
+
+    aibt_aibench_clx = [
+    {'name': 'inception-v4-imagenet-float32_56i_1cpi_defcf_defuf_2666df_default','perf': None,
+     'agg_secs': 3.5, 'start': 105, 'stop': 455, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190913-123321-inception_v4_imagenet_float32'},
+    {'name': 'inception-v4-imagenet-int8_56i_1cpi_defcf_defuf_2666df_default','perf': None,
+     'agg_secs': 3.5, 'start': 35, 'stop': 175, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190913-123519-inception_v4_imagenet_int8'},
+    {'name': 'fasterrcnn-resnet-50-v1-coco-float32_56i_1cpi_defcf_defuf_2666df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190913-123637-fasterrcnn_resnet_50_v1_coco_float32'},
+    {'name': 'inception-resnet-v2-imagenet-float32_56i_1cpi_defcf_defuf_2666df_default','perf': None,
+     'agg_secs': 3.5, 'start': 70, 'stop': 210, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190913-132905-inception_resnet_v2_imagenet_float32'},
+    {'name': 'rfcn-resnet-101-coco-int8_56i_1cpi_defcf_defuf_2666df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190913-133038-rfcn_resnet_101_coco_int8'},
+    {'name': 'inception-resnet-v2-imagenet-int8_56i_1cpi_defcf_defuf_2666df_default','perf': None,
+     'agg_secs': 3.5, 'start': 35, 'stop': 140, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190913-134033-inception_resnet_v2_imagenet_int8'},
+    {'name': 'fasterrcnn-resnet-50-v1-coco-int8_56i_1cpi_defcf_defuf_2666df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190913-134154-fasterrcnn_resnet_50_v1_coco_int8'},
+    {'name': 'rfcn-resnet-101-coco-float32_56i_1cpi_defcf_defuf_2666df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190913-150751-rfcn_resnet_101_coco_float32'},
+
+    {'name': 'transformer-nmt-standalone-inference-sf1_56i_1cpi_defcf_defuf_2666df_default','perf': 178.95,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Rome_SKX_CLX/CLX8280M/transformer-nmt-standalone-inference-sf1/aibench-20190913115822853664/dummy-0-7db6b86867-hbzvh/perf-0-56ccbc59d8-rx6ds/emon-13092019120347'},
+    {'name': 'gnmt-standalone-inference-sf1_28i_2cpi_defcf_defuf_2666df_default','perf': 323.83,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Rome_SKX_CLX/CLX8280M/gnmt-standalone-inference-sf1/aibench-20190913112107731861/dummy-0-5bc55db76f-5kkxw/perf-0-696cb55d8b-jbxm4/emon-13092019112650'},
+    {'name': 'qanet-standalone-inference-sf1_56i_1cpi_defcf_defuf_2666df_default','perf': 455.97,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt',
+     'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBench/Rome_SKX_CLX/CLX8280M/qanet-standalone-inference-sf1/aibench-20190913131334426676/dummy-0-7f9b948cdc-twhzb/perf-0-5cdddf775b-rsjm9/emon-13092019132028'},
+    ]
+
+    duality_phase05 = [
+    {'name': 'duality-config4-standard_56i_1cpi_defcf_defuf_2666df_proxy','perf': 1276,
+     'agg_secs': 0.04, 'start': None, 'stop': None, 'metrics': 'skx-2s-proxy-only.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/duality_phase0.5',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/duality-standard-emon/aibench-20190912153440015185/dummy-0-594cc76d64-rjrvk/perf-0-c49656859-5nddj/emon-12092019154047'},
+    {'name': 'duality-config4-standard_28i_1cpi_defcf_defuf_2666df_proxy','perf': 731,
+     'agg_secs': 0.04, 'start': None, 'stop': None, 'metrics': 'skx-2s-proxy-only.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/duality_phase0.5',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/duality-standard-emon/aibench-20190913105803541781/dummy-0-767655f4-2wbc5/perf-0-69864749df-ff24g/emon-13092019110340'},
+    {'name': 'duality-config4-standard_1i_56cpi_defcf_defuf_2666df_proxy','perf': 27,
+     'agg_secs': 0.04, 'start': None, 'stop': None, 'metrics': 'skx-2s-proxy-only.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/duality_phase0.5',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/duality-standard-emon/aibench-20190912145000906610/dummy-0-869f46f8c4-8f4sk/perf-0-7fc49d8cd9-dx244/emon-12092019145644'},
+
+    {'name': 'duality-config4-experimental_56i_1cpi_defcf_defuf_2666df_proxy','perf': 1253,
+     'agg_secs': 0.04, 'start': None, 'stop': None, 'metrics': 'skx-2s-proxy-only.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/duality_phase0.5',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/duality-experimental-emon/aibench-20190912163528868048/dummy-0-c6d9c9655-jl9pq/perf-0-796c5464d8-trgdb/emon-12092019164246'},
+    {'name': 'duality-config4-experimental_28i_1cpi_defcf_defuf_2666df_proxy','perf': 695,
+     'agg_secs': 0.04, 'start': None, 'stop': None, 'metrics': 'skx-2s-proxy-only.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/duality_phase0.5',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/duality-experimental-emon/aibench-20190919122717822792/dummy-0-6774dbd784-dhrsh/perf-0-86766bb7b7-rf7ld/emon-19092019123338'},
+    {'name': 'duality-config4-experimental_1i_56cpi_defcf_defuf_2666df_proxy','perf': 4.3,
+     'agg_secs': 0.04, 'start': None, 'stop': None, 'metrics': 'skx-2s-proxy-only.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/duality_phase0.5',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/duality-experimental-emon/aibench-20190916110119655354/dummy-0-7fcbc697dd-j4zq8/perf-0-55c6b75695-658cn/emon-16092019110645'},
+    ]
+
+
+    aibt_clx_2933 = [
+    {'name': 'inception-v3-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     #'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/combined',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-194923-inception_v3_imagenet_float32'},
+    {'name': 'inception-v4-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-195111-inception_v4_imagenet_float32'},
+    {'name': 'rfcn-resnet-101-coco-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-195251-rfcn_resnet_101_coco_int8'},
+    {'name': 'dcgan-cifar10data-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-200316-dcgan_cifar10data_float32'},
+    {'name': 'mtcc-lfw-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-200407-mtcc_lfw_float32'},
+    {'name': 'unet-nodatalayer-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-203741-unet_nodatalayer_float32'},
+    {'name': 'ncf-ml-1m-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-203837-ncf_ml-1m_float32'},
+    {'name': 'resnet-50-v1-5-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-220744-resnet_50_v1_5_imagenet_float32'},
+    {'name': 'resnet-50-v1-5-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-220929-resnet_50_v1_5_imagenet_int8'},
+    {'name': 'ssd-resnet-34-nodatalayer-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-221054-ssd_resnet_34_nodatalayer_int8'},
+    {'name': 'inception-resnet-v2-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-221405-inception_resnet_v2_imagenet_int8'},
+    {'name': 'rfcn-resnet-101-coco-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-221502-rfcn_resnet_101_coco_float32'},
+    {'name': 'facenet-lfw-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-224622-facenet_lfw_float32'},
+    {'name': 'densenet-169-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225101-densenet_169_imagenet_float32'},
+    {'name': 'lm-1b-wmt11-monolingual-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225221-lm_1b_wmt11_monolingual_float32'},
+    {'name': 'resnet-50-v1-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225300-resnet_50_v1_imagenet_float32'},
+    {'name': 'resnet-50-v1-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225447-resnet_50_v1_imagenet_int8'},
+    {'name': 'mobilenet-v1-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225607-mobilenet_v1_imagenet_float32'},
+    {'name': 'wide-and-deep-criteo-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190919-225720-wide_and_deep_criteo_float32'},
+    {'name': 'resnet-101-v1-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-022029-resnet_101_v1_imagenet_float32'},
+    {'name': 'resnet-101-v1-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-022228-resnet_101_v1_imagenet_int8'},
+    {'name': 'inception-v3-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-022350-inception_v3_imagenet_int8'},
+    {'name': 'fasterrcnn-resnet-50-v1-coco-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-022514-fasterrcnn_resnet_50_v1_coco_float32'},
+    {'name': 'ssd-mobilenet-v1-coco-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-032206-ssd_mobilenet_v1_coco_float32'},
+    {'name': 'inception-v4-imagenet-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-033720-inception_v4_imagenet_int8'},
+    {'name': 'draw-mnistdata-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-033820-draw_mnistdata_float32'},
+    {'name': 'fasterrcnn-resnet-50-v1-coco-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-033933-fasterrcnn_resnet_50_v1_coco_int8'},
+    {'name': 'maskrcnn-resnet-101-v1-coco-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-051152-maskrcnn_resnet_101_v1_coco_float32'},
+    {'name': 'ssd-resnet-34-nodatalayer-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-051231-ssd_resnet_34_nodatalayer_float32'},
+    {'name': 'ssd-mobilenet-v1-coco-int8_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-051952-ssd_mobilenet_v1_coco_int8'},
+    {'name': 'deepmind-wavenet-nsynth-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-052043-deepmind_wavenet_nsynth_float32'},
+    {'name': 'inception-resnet-v2-imagenet-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-052308-inception_resnet_v2_imagenet_float32'},
+    {'name': 'gnmt-4-wmt16-ger-eng-float32_56i_2cpi_defcf_defuf_2933df_default','perf': None,
+     'agg_secs': 3.5, 'start': None, 'stop': None, 'metrics': 'clx-2s.xml',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_clx_2933',
+     'emon_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/AIBT_emon_mpiotrow/20190920-052422-gnmt_4_wmt16_ger_eng_float32'},
+    ]
+
+    aibt_121619 = [{
+     'type': 'aibt',
+     'search_dir': '/mnt/san03RAID1/data_repo/Benchmarks/AIBT/Clustering_CLX8280M',
+     'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/aibt_121619',
+     'manual_start_stop': {}
+    }]
+
+
+    kafka_emulation_122019 = [{
+        'type': 'kafka-emulator',
+        'search_dir': '/mnt/san03RAID1/users/ampatel1/aibench_harness/kafka-benchmark/branch_dummyKafka_8_26_2019/AIBench/EmulationData_emon', 
+        #'search_dir': '/mnt/nvme_nfs_share/AIBench_shared_disk/Scenario/kafka-benchmark/',
+        'summary_file': '/mnt/san03RAID1/users/ampatel1/aibench_harness/kafka-benchmark/branch_dummyKafka_8_26_2019/AIBench/EmulationData_emon/summary_emon.csv',
+        'results_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/results/kafka_emulation_122019',
+        'agg_secs': 3.0,
+        'manual_start_stop': {}
+    }]
+
+
+    return [aibt_121619]

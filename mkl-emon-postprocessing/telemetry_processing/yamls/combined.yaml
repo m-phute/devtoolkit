@@ -1,0 +1,8 @@
+# you can process multiple workload types by either putting all the workload sets in one yaml, or specifying a list of yamls to process (recommended)
+
+- combined:
+  - /mnt/san03RAID1/users/mablackm/repos/AIBench-analysis/telemetry_processing/yamls/aibench_5-10-19.yaml
+  - /mnt/san03RAID1/users/mablackm/repos/AIBench-analysis/telemetry_processing/yamls/aibt.yaml
+  - /mnt/san03RAID1/users/mablackm/repos/AIBench-analysis/telemetry_processing/yamls/cwr.yaml
+  - /mnt/san03RAID1/users/mablackm/repos/AIBench-analysis/telemetry_processing/yamls/kafka_emulation_12-20-19.yaml
+  - /mnt/san03RAID1/users/mablackm/repos/AIBench-analysis/telemetry_processing/yamls/bert.yaml

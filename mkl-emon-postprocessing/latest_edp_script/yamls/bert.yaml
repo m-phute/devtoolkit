@@ -1,0 +1,7 @@
+#- bert_012320:
+#    - {'name': 'bert-single_1i_40cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/other/bert/single-socket'}
+#    - {'name': 'bert-dual_1i_80cpi_defcf_defuf_2933df_default', 'filter_scheme': 'auto', 'agg_secs': 3.5, 'metrics': 'clx-2s.xml', 'emon_dir': '/mnt/san03RAID1/users/mablackm/aibench_emon/other/bert/dual-socket'}
+
+- bert_030320:
+    - {'name': 'bert-tensorflow-base-clx_1socket_1instance_20cores', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': '/mnt/san03RAID1/tools/AIBench/EMON_event_files/edp-v4.01/Architecture Specific/CascadeLake/CLX-2S/clx-2s.xml', 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/bert_dump/bert_tf_1s_20threads', 'dram_channels': 6, 'instances': 1, 'cores per instance': 20, 'core freq': 'default', 'uncore freq': 'default', 'DRAM freq': 2933}
+    - {'name': 'bert-onnx-clx_1socket_1instance_20cores', 'filter_scheme': 'auto', 'filter_column': 'metric_GFLOPS/s', 'agg_secs': 3.5, 'metrics': '/mnt/san03RAID1/tools/AIBench/EMON_event_files/edp-v4.01/Architecture Specific/CascadeLake/CLX-2S/clx-2s.xml', 'emon_dir': '/mnt/san03RAID1/data_repo/Benchmarks/bert_dump/bert_onnx_1s_20threads', 'dram_channels': 6, 'instances': 1, 'cores per instance': 20, 'core freq': 'default', 'uncore freq': 'default', 'DRAM freq': 2933}

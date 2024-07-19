@@ -1,0 +1,30 @@
+# each yaml should consist of a top level list of "workload sets"
+# a workload set can be an explicit list of each EMON to process or a directory of pre-determined structure that will be searched for EMON
+# the pre-determined search types are currently ['aibench', 'aibt', 'edp', 'kafka-emulator']
+
+- search_list:
+        - 'type': 'edp'
+          'search_dir': '/mnt/madhuri/wl_analysis/tf_resnet50_v15/logs_aug6/emon_raw/avg_emon/iter1'
+          'metrics': '/media/share/AI/WL_Analysis/edp-v4.01//ArchitectureSpecific/CascadeLake/CLX-2S/clx-2s.xml'
+          'agg_secs': 3.5 
+          'filter_scheme': 'percent' 
+          'filter_percent': 0
+          'run_count' : 'iter1'
+          
+        - 'type': 'edp'
+          'search_dir': '/mnt/madhuri/wl_analysis/tf_resnet50_v15/logs_aug6/emon_raw/avg_emon/iter2'
+          'metrics': '/media/share/AI/WL_Analysis/edp-v4.01//ArchitectureSpecific/CascadeLake/CLX-2S/clx-2s.xml'
+          'agg_secs': 3.5
+          'filter_scheme': 'percent'
+          'filter_percent': 0
+          'run_count' : 'iter2'
+
+        - 'type': 'edp'
+          'search_dir' : '/mnt/madhuri/wl_analysis/tf_resnet50_v15/logs_aug6/emon_raw/avg_emon/iter3'
+          'metrics' : '/media/share/AI/WL_Analysis/edp-v4.01//ArchitectureSpecific/CascadeLake/CLX-2S/clx-2s.xml'
+          'agg_secs' : 3.5
+          'filter_scheme' : 'percent'
+          'filter_percent' : 0
+          'run_count' : 'iter3'
+
+

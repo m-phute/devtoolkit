@@ -1,0 +1,723 @@
+<?xml version="1.0"?>
+<root>
+	<metric name="metric_CPU operating frequency (in GHz)">
+        <!-- <event alias="a">CPU_CLK_UNHALTED.THREAD</event>
+		MSR 0xC00000E7 is MPERF providing reference cycles  -->
+		<event alias="a">CPU_CLK_UNHALTED.THREAD</event>
+		<event alias="b">MSR_EVENT:msr=0xC00000E7:type=FREERUN:scope=THREAD</event>
+		<constant alias="c">system.tsc_freq</constant>      
+		<formula>(a/b*c)/1000000000</formula>
+	</metric>
+
+	<metric name="metric_CPU utilization %">
+		<event alias="a">MSR_EVENT:msr=0xC00000E7:type=FREERUN:scope=THREAD</event>
+		<event alias="b">TSC</event>
+		<formula>100*a/b</formula>
+	</metric>
+
+	<metric name="metric_CPU utilization% in kernel mode">
+		<event alias="a">CPU_CLK_UNHALTED.REF_TSC:SUP</event>
+		<event alias="b">TSC</event>
+		<formula>100*a/b</formula>
+	</metric>
+	
+	<metric name="metric_CPI">
+        <throughput-metric-name>metric_cycles per txn</throughput-metric-name>
+        <event alias="a">CPU_CLK_UNHALTED.THREAD</event>
+        <event alias="b">INST_RETIRED.ANY</event>
+        <formula>a/b</formula>
+    </metric>
+	
+	<metric name="metric_kernel_CPI">
+        <event alias="a">CPU_CLK_UNHALTED.THREAD:SUP</event>
+        <event alias="b">INST_RETIRED.ANY:SUP</event>
+        <formula>a/b</formula>
+    </metric>
+	
+	<metric name="metric_branch mispredict ratio">
+        <event alias="a">Branches.Mispred</event>
+        <event alias="b">Branches.Retired</event>
+        <formula>a/b</formula>
+    </metric>
+
+	<metric name="metric_Uops retired per instr">
+        <throughput-metric-name>metric_Uops retired per txn</throughput-metric-name>
+		<event alias="a">Uops.Retired</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+
+	<metric name="metric_loads per instr">
+        <throughput-metric-name>metric_loads per txn</throughput-metric-name>
+		<event alias="a">LsDispatch.Loads</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+
+	<metric name="metric_stores per instr">
+        <throughput-metric-name>metric_stores per txn</throughput-metric-name>
+		<event alias="a">LsDispatch.Stores</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+	
+	<metric name="metric_locks executed per instr">
+        <throughput-metric-name>metric_locks executed per txn</throughput-metric-name>
+		<event alias="a">Locks:u0xe</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+
+	<metric name="metric_locks (contended locks) executed per instr">
+        <throughput-metric-name>metric_locks (contended locks) executed per txn</throughput-metric-name>
+		<event alias="a">Locks:u0x2</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+
+	<metric name="metric_locks (un-contended locks) executed per instr">
+        <throughput-metric-name>metric_locks (un-contended locks) executed per txn</throughput-metric-name>
+		<event alias="a">Locks:u0xe</event>
+		<event alias="b">Locks:u0x2</event>
+		<event alias="c">INST_RETIRED.ANY</event>
+		<formula>(a-b)/c</formula>
+	</metric>
+
+	<metric name="metric_Store to load forwards per instr">
+        <throughput-metric-name>metric_Store to load forwards per txn</throughput-metric-name>
+		<event alias="a">Store2LoadForwards</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+	
+	<metric name="metric_misaligned loads per instr">
+        <throughput-metric-name>metric_misaligned loads per txn</throughput-metric-name>
+		<event alias="a">MisalignedLoads</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+	
+   <metric name="metric_L1-I code read misses (w/ prefetches) per instr">
+        <throughput-metric-name>metric_L1I code read misses (includes prefetches) per txn</throughput-metric-name>
+		<event alias="a">IcCacheFillL2</event>
+		<event alias="b">IcCacheFillSystem</event>
+		<event alias="c">INST_RETIRED.ANY</event>
+		<formula>(a+b)/c</formula>
+   </metric>
+<!--		
+   <metric name="metric_L1-I MPI (based on L2Req events)">
+        <throughput-metric-name>metric_L1-I misses (based on L2Req events) per txn</throughput-metric-name>
+		<event alias="a">L2ReqG1.IcRead</event>
+		<event alias="c">INST_RETIRED.ANY</event>
+		<formula>a/c</formula>
+   </metric>
+-->		
+	<metric name="metric_L1-I misses filled by L2 per instr">
+        <throughput-metric-name>metric_L1-I misses filled by L2 per txn</throughput-metric-name>
+		<event alias="a">IcCacheFillL2</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+    <metric name="metric_L1-I misses filled by L3/memory per instr">
+        <throughput-metric-name>metric_L1-I misses filled by L3/memory per txn</throughput-metric-name>
+		<event alias="a">IcCacheFillSystem</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+
+   <metric name="metric_L1-I Requests that miss L2 per instr">
+        <throughput-metric-name>metric_L1-I requests that miss L2 per txn</throughput-metric-name>
+		<event alias="a">L2ReqStatus.CodeMiss</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_L1-I Requests that hit shared in L2 per instr">
+        <throughput-metric-name>metric_L1-I Requests that hit shared in L2 per txn</throughput-metric-name>
+		<event alias="a">L2ReqStatus.CodeHitS</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D MPI (includes data+rfo w/ prefetches)">
+        <throughput-metric-name>metric_L1D misses per txn (includes data+rfo w/ prefetches)</throughput-metric-name>
+		<event alias="a">L2ReqG1.RdBlkL</event>
+		<event alias="b">L2ReqG1.RdBlkX</event>
+		<event alias="c">L2ReqG1.RdBlkCS</event>
+		<event alias="d">INST_RETIRED.ANY</event>
+		<formula>(a+b+c)/d</formula>
+   </metric>
+	
+   <metric name="metric_L1D Requests that miss L2 per instr">
+        <throughput-metric-name>metric_L1D Requests that miss L2 per txn</throughput-metric-name>
+		<event alias="a">L2ReqStatus.RdMiss</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_L1D Requests that hit non-shared in L2 per instr">
+        <throughput-metric-name>metric_L1D Requests that hit non-shared in L2 per txn</throughput-metric-name>
+		<event alias="a">L2ReqStatus.HitX</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_L1D Requests that hit shared line in L2 per instr">
+        <throughput-metric-name>metric_L1D Requests that hit shared line in L2 per txn</throughput-metric-name>
+		<event alias="a">L2ReqStatus.HitShared</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_L2 Demand Read (dataRd+rfo) MPI ">
+        <throughput-metric-name>metric_L2 Demand Read (dataRd+rfo) per txn</throughput-metric-name>
+		<event alias="a">L2ReqStatus.RdMiss</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+<!--   <metric name="metric_L2 HW Prefetches per instr">
+        <throughput-metric-name>metric_L2 HW Prefetches per txn</throughput-metric-name>
+		<event alias="a">L2ReqG1.L2HwPf</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+-->   
+   <metric name="metric_L2 HW Prefetches hitting in L2 per instr">
+        <throughput-metric-name>metric_L2 HW Prefetches hitting in L2 per txn</throughput-metric-name>
+		<event alias="a">L2Prefetch.HitL2</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+
+   <metric name="metric_L2 HW Prefetches hitting in L3 per instr">
+        <throughput-metric-name>metric_L2 HW Prefetches hitting in L3 per txn</throughput-metric-name>
+		<event alias="a">L2Prefetch.HitL3</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+
+   <metric name="metric_L2 HW Prefetches missing in L3 per instr">
+        <throughput-metric-name>metric_L2 HW Prefetches missing in L3 per txn</throughput-metric-name>
+		<event alias="a">L2Prefetch.MissL3</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+
+   <metric name="metric_L1 ITLB misses that hit STLB per instr">
+        <throughput-metric-name>metric_L1 ITLB misses that hit STLB per txn</throughput-metric-name>
+		<event alias="a">BpL1ITLBMissL2ITLBHit</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_ITLB MPI">
+        <throughput-metric-name>metric_ITLB misses per txn</throughput-metric-name>
+		<event alias="a">BpL1ITLBMissL2ITLBMiss.4K</event>
+		<event alias="b">BpL1ITLBMissL2ITLBMiss.2M</event>
+		<event alias="c">BpL1ITLBMissL2ITLBMiss.1G</event>
+		<event alias="d">INST_RETIRED.ANY</event>
+		<formula>(a+b+c)/d</formula>
+   </metric>
+   
+   <metric name="metric_ITLB 4K page MPI">
+        <throughput-metric-name>metric_ITLB 4K page misses per txn</throughput-metric-name>
+		<event alias="a">BpL1ITLBMissL2ITLBMiss.4K</event>
+		<event alias="d">INST_RETIRED.ANY</event>
+		<formula>a/d</formula>
+   </metric>
+   
+   <metric name="metric_ITLB 2M page MPI">
+        <throughput-metric-name>metric_ITLB 2M page misses per txn</throughput-metric-name>
+		<event alias="a">BpL1ITLBMissL2ITLBMiss.2M</event>
+		<event alias="d">INST_RETIRED.ANY</event>
+		<formula>a/d</formula>
+   </metric>
+
+   <metric name="metric_L1 DTLB 4K page misses hitting STLB per instr">
+        <throughput-metric-name>metric_L1 DTLB 4K page misses hitting STLB per txn</throughput-metric-name>
+		<event alias="a">L2DtlbHit.4K</event>
+		<event alias="b">L2DtlbHit.Coalesced</event>
+		<event alias="c">INST_RETIRED.ANY</event>
+		<formula>(a+b)/c</formula>
+   </metric>
+   
+   <metric name="metric_L1 DTLB 2M page misses hitting STLB per instr">
+        <throughput-metric-name>metric_L1 DTLB 2M page misses hitting STLB per txn</throughput-metric-name>
+		<event alias="a">L2DtlbHit.2M</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_L1 DTLB 1G page misses hitting STLB per instr">
+        <throughput-metric-name>metric_L1 DTLB 1G page misses hitting STLB per txn</throughput-metric-name>
+		<event alias="a">L2DtlbHit.1G</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_L2 DTLB All pages (ld+st) misses per instr">
+        <throughput-metric-name>metric_L2 DTLB All pages (ld+st) misses per txn</throughput-metric-name>
+		<event alias="a">L2DtlbMiss.4K</event>
+		<event alias="b">L2DtlbMiss.2M</event>
+		<event alias="c">L2DtlbMiss.1G</event>
+		<event alias="d">L2DtlbMiss.Coalesced</event>
+		<event alias="e">INST_RETIRED.ANY</event>
+		<formula>(a+b+c+d)/e</formula>
+   </metric>
+
+   <metric name="metric_L2 DTLB 4K page (ld+st) misses per instr">
+        <throughput-metric-name>metric_L2 DTLB 4K page (ld+st) misses per txn</throughput-metric-name>
+		<event alias="a">L2DtlbMiss.4K</event>
+		<event alias="d">L2DtlbMiss.Coalesced</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>(a+d)/b</formula>
+   </metric>
+   
+   <metric name="metric_L2 DTLB 2M page (ld+st) misses per instr">
+        <throughput-metric-name>metric_L2 DTLB 2M page (ld+st) misses per txn</throughput-metric-name>
+		<event alias="a">L2DtlbMiss.2M</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L2 DTLB 1G page (ld+st) misses per instr">
+        <throughput-metric-name>metric_L2 DTLB 1G page  (ld+st)misses per txn</throughput-metric-name>
+		<event alias="a">L2DtlbMiss.1G</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D demand requests that hit in local L2 per instr">
+        <throughput-metric-name>metric_L1D demand requests that hit in local L2 per txn</throughput-metric-name>
+		<event alias="a">DcFillSys.LocalL2Hit</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D demand requests that hit in local CCX per instr">
+        <throughput-metric-name>metric_L1D demand requests that hit in local CCX per txn</throughput-metric-name>
+		<event alias="a">DcFillSys.LocalCache</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D demand requests that hit in local DRAM per instr">
+        <throughput-metric-name>metric_L1D demand requests that hit in local DRAM per txn</throughput-metric-name>
+		<event alias="a">DcFillSys.LocalDram</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D demand requests that hit in remote CCX per instr">
+        <throughput-metric-name>metric_L1D demand requests that hit in remote CCX per txn</throughput-metric-name>
+		<event alias="a">DcFillSys.RemoteCache</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D demand requests that hit in remote DRAM per instr">
+        <throughput-metric-name>metric_L1D demand requests that hit in remote DRAM per txn</throughput-metric-name>
+		<event alias="a">DcFillSys.RemoteDram</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+
+   <metric name="metric_L1D HwPf requests per instr">
+        <throughput-metric-name>metric_L1D HwPf requests per txn</throughput-metric-name>
+		<event alias="a">L1dMiss.FillBufAlloc.HwPf</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_L1D HwPf requests that hit in local L2 per instr">
+        <throughput-metric-name>metric_L1D HwPf requests that hit in local L2 per txn</throughput-metric-name>
+		<event alias="a">HwPf.DcFill.LocalL2Hit</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D HwPf requests that hit in local CCX per instr">
+        <throughput-metric-name>metric_L1D HwPf requests that hit in local CCX per txn</throughput-metric-name>
+		<event alias="a">HwPf.DcFill.LocalCache</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D HwPf requests that hit in local DRAM per instr">
+        <throughput-metric-name>metric_L1D HwPf requests that hit in local DRAM per txn</throughput-metric-name>
+		<event alias="a">HwPf.DcFill.LocalDram</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D HwPf requests that hit in remote CCX per instr">
+        <throughput-metric-name>metric_L1D HwPf requests that hit in remote CCX per txn</throughput-metric-name>
+		<event alias="a">HwPf.DcFill.RemoteCache</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+   <metric name="metric_L1D HwPf requests that hit in remote DRAM per instr">
+        <throughput-metric-name>metric_L1D HwPf requests that hit in remote DRAM per txn</throughput-metric-name>
+		<event alias="a">HwPf.DcFill.RemoteDram</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+    
+	<metric name="metric_L3 accesses per instr">
+        <throughput-metric-name>metric_L3 accesses per txn</throughput-metric-name>
+		<event alias="a">L3RequestG1</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<constant alias="physical_cores_per_CCX">4</constant>
+		<constant alias="threads">system.sockets[0][0].size</constant>      
+		<formula>(a/(physical_cores_per_CCX*threads))/b</formula>
+   </metric>
+   
+	<metric name="metric_L3 misses per instr">
+        <throughput-metric-name>metric_L3 misses per txn</throughput-metric-name>
+		<event alias="a">L3Lookup.Misses</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<constant alias="physical_cores_per_CCX">4</constant>
+		<constant alias="threads">system.sockets[0][0].size</constant>      
+		<formula>(a/(physical_cores_per_CCX*threads))/b</formula>
+   </metric>
+  
+	<metric name="metric_L3 miss B/W (MB/sec)">
+		<event alias="a">L3Lookup.Misses</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<constant alias="physical_cores_per_CCX">4</constant>
+		<constant alias="threads">system.sockets[0][0].size</constant>      
+		<formula>((a*64/(physical_cores_per_CCX*threads))/1000000)</formula>
+   </metric>
+
+   <metric name="metric_Average LLC data read (demand+prefetch) miss latency (in ns)">
+        <event alias="a">L3Lookup.Misses</event>
+        <event alias="b">L3MissLatency</event>
+		<event alias="c">CPU_CLK_UNHALTED.THREAD</event>
+		<event alias="d">MSR_EVENT:msr=0xC00000E7:type=FREERUN:scope=THREAD</event>
+		<constant alias="e">system.tsc_freq</constant>      
+         <formula>(b*16/a)/((c/d*e)/1000000000)</formula>
+    </metric>
+
+	<metric name="metric_NUMA %_Reads addressed to local DRAM/Die">
+		<event alias="a">DcFillSys.LocalDram</event>
+		<event alias="b">DcFillSys.RemoteDram</event>
+		<event alias="c">DcFillSys.RemoteCache</event>
+		<event alias="d">HwPf.DcFill.LocalDram</event>
+		<event alias="e">HwPf.DcFill.RemoteDram</event>
+		<event alias="f">HwPf.DcFill.RemoteCache</event>
+		<formula>100*(a+d)/(a+b+c+d+e+f)</formula>
+   </metric>
+   
+	<metric name="metric_NUMA %_Reads addressed to remote DRAM/Die">
+		<event alias="a">DcFillSys.LocalDram</event>
+		<event alias="b">DcFillSys.RemoteDram</event>
+		<event alias="c">DcFillSys.RemoteCache</event>
+		<event alias="d">HwPf.DcFill.LocalDram</event>
+		<event alias="e">HwPf.DcFill.RemoteDram</event>
+		<event alias="f">HwPf.DcFill.RemoteCache</event>
+		<formula>100*(b+c+e+f)/(a+b+c+d+e+f)</formula>
+   </metric>
+   
+    <metric name="metric_memory bandwidth total (MB/sec)">
+        <event alias="a">DramBw.total.ch0</event>
+        <event alias="b">DramBw.total.ch1</event>
+        <event alias="c">DramBw.total.ch2</event>
+        <event alias="d">DramBw.total.ch3</event>
+        <event alias="e">DramBw.total.ch4:umask_ext=1</event>
+        <event alias="f">DramBw.total.ch5:umask_ext=1</event>
+        <event alias="g">DramBw.total.ch6:umask_ext=1</event>
+        <event alias="h">DramBw.total.ch7:umask_ext=1</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>((a+b+c+d+e+f+g+h)/(j))*64/1000000</formula>
+    </metric>
+
+    <metric name="metric_memory bandwidth total ch0+ch1 (MB/sec)">
+        <event alias="a">DramBw.total.ch0</event>
+        <event alias="b">DramBw.total.ch1</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>((a+b)/(j))*64/1000000</formula>
+    </metric>
+    <metric name="metric_memory bandwidth total ch2+ch3 (MB/sec)">
+        <event alias="c">DramBw.total.ch2</event>
+        <event alias="d">DramBw.total.ch3</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>((c+d)/(j))*64/1000000</formula>
+    </metric>
+    <metric name="metric_memory bandwidth total ch4+ch5 (MB/sec)">
+        <event alias="e">DramBw.total.ch4:umask_ext=1</event>
+        <event alias="f">DramBw.total.ch5:umask_ext=1</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>((e+f)/(j))*64/1000000</formula>
+    </metric>
+    <metric name="metric_memory bandwidth total ch6+ch7 (MB/sec)">
+        <event alias="g">DramBw.total.ch6:umask_ext=1</event>
+        <event alias="h">DramBw.total.ch7:umask_ext=1</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>((g+h)/(j))*64/1000000</formula>
+    </metric>
+
+	<metric name="metric_package power (watts)">
+		<event alias="a">MSR_EVENT:msr=0xc001029B:type=FREERUN:scope=PACKAGE</event>
+		<formula>a*15.3/1000000</formula>
+	</metric>
+
+    <metric name="metric_% Uops delivered from Uop cache">
+        <event alias="a">UopsDispatched.OpCache</event>
+        <event alias="b">UopsDispatched.Decoder</event>
+        <formula>100*(a/(a+b))</formula>
+    </metric>
+
+    <metric name="metric_% Uops delivered from decoder">
+        <event alias="a">UopsDispatched.OpCache</event>
+        <event alias="b">UopsDispatched.Decoder</event>
+        <formula>100*(b/(a+b))</formula>
+    </metric>
+	
+   	<metric name="metric_%cycles FE stalled for any_reason">
+ 		<event alias="a">IcFetchStall.IcStallAny</event>
+		<event alias="b">CPU_CLK_UNHALTED.THREAD</event>
+		<formula>(a/b)*100</formula>
+   </metric>
+   
+	<metric name="metric_%cycles FE stalled due to DQ empty %">
+ 		<event alias="a">IcFetchStall.IcStallDqEmpty</event>
+		<event alias="b">CPU_CLK_UNHALTED.THREAD</event>
+		<formula>(a/b)*100</formula>
+   </metric>
+
+   <metric name="metric_%cycles FE stalled due to back_pressure %">
+ 		<event alias="a">IcFetchStall.IcStallBackPressure</event>
+		<event alias="b">CPU_CLK_UNHALTED.THREAD</event>
+		<formula>(a/b)*100</formula>
+   </metric>
+
+   <metric name="metric_branches all branches retired per instr">
+        <throughput-metric-name>metric_branches all branches retired per txn</throughput-metric-name>
+		<event alias="a">Branches.Retired</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches all branches mispredicted per instr">
+        <throughput-metric-name>metric_branches all branches mispredicted per txn</throughput-metric-name>
+		<event alias="a">Branches.Mispred</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches all taken branches per instr">
+        <throughput-metric-name>metric_branches all taken branches per txn</throughput-metric-name>
+		<event alias="a">Branches.Taken</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches all taken branches mispredicted per instr">
+        <throughput-metric-name>metric_branches all taken branches mispredicted per txn</throughput-metric-name>
+		<event alias="a">Branches.Taken.Mispred</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches near returns per instr">
+        <throughput-metric-name>metric_branches near returns per txn</throughput-metric-name>
+		<event alias="a">Branches.NearRet</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches near returns mispredicted per instr">
+        <throughput-metric-name>metric_branches near returns mispredicted per txn</throughput-metric-name>
+		<event alias="a">Branches.NearRet.Mispred</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches indirect branches mispredicted per instr">
+        <throughput-metric-name>metric_branches indirect branches mispredicted per txn</throughput-metric-name>
+		<event alias="a">Branches.Indirect.Mispred</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches conditional branches per instr">
+        <throughput-metric-name>metric_branches conditional branches per txn</throughput-metric-name>
+		<event alias="a">Branches.Cond</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches conditional branches mispredicted per instr">
+        <throughput-metric-name>metric_branches conditional branches mispredicted per txn</throughput-metric-name>
+		<event alias="a">Branches.Cond.Mispred</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+   
+   <metric name="metric_branches far transfers per instr">
+        <throughput-metric-name>metric_branches far transfers per txn</throughput-metric-name>
+		<event alias="a">Branches.FarXfer</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+   </metric>
+
+	<metric name="metric_pf SW NTA prefetches per instr">
+        <throughput-metric-name>metric_pf SW NTA prefetches per txn</throughput-metric-name>
+		<event alias="a">InstDispatch.PrefNTA</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+	
+	<metric name="metric_pf SW load prefetches per instr">
+        <throughput-metric-name>metric_pf SW load prefetches per txn</throughput-metric-name>
+		<event alias="a">InstDispatch.LoadPrefW</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+	
+	<metric name="metric_pf SW store prefetches per instr">
+        <throughput-metric-name>metric_pf SW store prefetches per txn</throughput-metric-name>
+		<event alias="a">InstDispatch.StorePrefW</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+
+    <metric name="metric_link data transmitted to remote socket total(MB/sec)">
+        <event alias="a">LinkDataXmitRemote.node0:umask_ext=8</event>
+        <event alias="b">LinkDataXmitRemote.node1:umask_ext=7</event>
+        <event alias="c">LinkDataXmitRemote.node2:umask_ext=8</event>
+        <event alias="d">LinkDataXmitRemote.node3:umask_ext=8</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>((a+b+c+d)/(j))*32/1000000</formula>
+    </metric>
+
+    <metric name="metric_link data transmitted to remote socket from node0(MB/sec)">
+        <event alias="a">LinkDataXmitRemote.node0:umask_ext=8</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>(a/j)*32/1000000</formula>
+    </metric>
+    <metric name="metric_link data transmitted to remote socket from node1(MB/sec)">
+        <event alias="b">LinkDataXmitRemote.node1:umask_ext=7</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>(b/j)*32/1000000</formula>
+    </metric>
+    <metric name="metric_link data transmitted to remote socket from node2(MB/sec)">
+        <event alias="c">LinkDataXmitRemote.node2:umask_ext=8</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>(c/j)*32/1000000</formula>
+    </metric>
+    <metric name="metric_link data transmitted to remote socket from node3(MB/sec)">
+        <event alias="d">LinkDataXmitRemote.node3:umask_ext=8</event>
+       <constant alias="j">system.sockets[0].cpus.count</constant>
+         <formula>(d/j)*32/1000000</formula>
+    </metric>
+
+	<metric name="metric_Store to load forward conflicts per instr">
+        <throughput-metric-name>metric_Store to load forward conflicts per txn</throughput-metric-name>
+		<event alias="a">Store2LoadConflicts</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+
+	<metric name="metric_TLB flushes per instr">
+        <throughput-metric-name>metric_TLB flushes per txn</throughput-metric-name>
+		<event alias="a">TlbFlushes.All</event>
+		<event alias="b">INST_RETIRED.ANY</event>
+		<formula>a/b</formula>
+	</metric>
+
+	<metric name="metric_TLB page walks total per instr">
+        <throughput-metric-name>metric_TLB page walks total per txn</throughput-metric-name>
+		<event alias="a">TlbWalks.LocalCache</event>
+		<event alias="b">TlbWalks.LocalDram</event>
+		<event alias="c">TlbWalks.LocalL2Hit</event>
+		<event alias="d">TlbWalks.RemoteDram</event>
+		<event alias="e">TlbWalks.RemoteCache</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>(a+b+c+d+e)/f</formula>
+	</metric>
+
+	<metric name="metric_TLB page walks hitting local L2 instr">
+        <throughput-metric-name>metric_TLB page walks hitting local L2 per txn</throughput-metric-name>
+		<event alias="c">TlbWalks.LocalL2Hit</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>c/f</formula>
+	</metric>
+
+	<metric name="metric_TLB page walks hitting local CCX instr">
+        <throughput-metric-name>metric_TLB page walks hitting local CCX per txn</throughput-metric-name>
+		<event alias="a">TlbWalks.LocalCache</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>a/f</formula>
+	</metric>
+
+	<metric name="metric_TLB page walks hitting local DRAM instr">
+        <throughput-metric-name>metric_TLB page walks hitting local DRAM per txn</throughput-metric-name>
+		<event alias="b">TlbWalks.LocalDram</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>b/f</formula>
+	</metric>
+
+	<metric name="metric_TLB page walks hitting remote CCX instr">
+        <throughput-metric-name>metric_TLB page walks hitting remote CCX per txn</throughput-metric-name>
+		<event alias="e">TlbWalks.RemoteCache</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>e/f</formula>
+	</metric>
+
+	<metric name="metric_TLB page walks hitting remote DRAM instr">
+        <throughput-metric-name>metric_TLB page walks hitting remote DRAM per txn</throughput-metric-name>
+		<event alias="d">TlbWalks.RemoteDram</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>d/f</formula>
+	</metric>
+
+   	<metric name="metric_%cycles uop queue is empty">
+ 		<event alias="a">UopQueue.Empty</event>
+		<event alias="b">CPU_CLK_UNHALTED.THREAD</event>
+		<formula>(a/b)*100</formula>
+   </metric>
+   
+   	<metric name="metric_%cycles dispatch stalled due to load Q stalls">
+ 		<event alias="a">DispatchResourceStall.LoadQ</event>
+		<event alias="b">CPU_CLK_UNHALTED.THREAD</event>
+		<formula>(a/b)*100</formula>
+   </metric>
+   
+   	<metric name="metric_%cycles dispatch stalled due to store Q stalls">
+ 		<event alias="a">DispatchResourceStall.StoreQ</event>
+		<event alias="b">CPU_CLK_UNHALTED.THREAD</event>
+		<formula>(a/b)*100</formula>
+   </metric>
+   
+	<metric name="metric_instr SSE and AVX instructions retired per instr">
+        <throughput-metric-name>metric_instr SSE and AVX instructions retired per txn</throughput-metric-name>
+		<event alias="d">Retired.SseAvxInstr</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>d/f</formula>
+	</metric>
+
+	<metric name="metric_misc interrupts taken per instr">
+        <throughput-metric-name>metric_misc interrupts taken per txn</throughput-metric-name>
+		<event alias="d">Interrupts.Taken</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>d/f</formula>
+	</metric>
+
+	<metric name="metric_misc TSC reads per instr">
+        <throughput-metric-name>metric_misc TSC reads per txn</throughput-metric-name>
+		<event alias="d">TSC.Reads</event>
+		<event alias="f">INST_RETIRED.ANY</event>
+		<formula>d/f</formula>
+	</metric>
+
+ 
+	<metric name="metric_EDP AMD EPYC XML version">
+ 		<constant alias="version">4.12</constant>      
+		<formula>version</formula>
+   </metric>
+	
+</root>
